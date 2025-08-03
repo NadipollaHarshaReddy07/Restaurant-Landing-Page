@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery | Fine Dine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .navbar {
+      background: #ffe6cc;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .navbar a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .navbar a.active {
+      color: #d35400;
+    }
+
+    .hero {
+      background: #333 url('gallery-hero.jpg') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .gallery {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="hero">
+    <h1>Gallery</h1>
+    <p>Explore our ambiance and delicious moments!</p>
+  </div>
+
+  <div class="gallery">
+    <img src="https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg" alt="Dining Area">
+    <img src="https://media.istockphoto.com/id/1081422898/photo/pan-fried-duck.jpg?s=612x612&w=0&k=20&c=kzlrX7KJivvufQx9mLd-gMiMHR6lC2cgX009k9XO6VA=" alt="Chef Special Dish">
+    <img src="https://thumbs.dreamstime.com/b/restaurant-table-setup-cut-flowers-8914373.jpg" alt="Table Setting">
+    <img src="https://www.touchbistro.com/wp-content/uploads/2021/08/restaurant-interior-design-ideas-thumbnail.jpg" alt="Interior">
+    <img src="https://images.stockcake.com/public/c/e/f/cefff6c8-ab5a-4b98-b5e5-30904d013d7e_large/elegant-dessert-presentation-stockcake.jpg" alt="Dessert">
+    <img src="https://www.shutterstock.com/image-photo/green-flowers-flowerpot-on-wooden-260nw-2241229631.jpg" alt="Outdoor Seating">
+  </div>
+
+</body>
+</html>

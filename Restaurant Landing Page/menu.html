@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menu | Fine Dine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .menu-item {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .btn {
+      background: orange;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: darkorange;
+    }
+    .order-cart {
+      margin-top: 40px;
+      border-top: 1px solid #aaa;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fine Dine Menu</h1>
+
+  <div class="menu-item">
+    <img src="https://silkroadrecipes.com/wp-content/uploads/2025/01/Fettuccine-Alfredo-Pasta-No-Cream-square.jpg" alt="Pasta Alfredo" />
+    <h3>Pasta Alfredo - ₹350</h3>
+    <input type="number" min="1" value="1" class="qty" />
+    <button class="btn" onclick="addToCart('Pasta Alfredo', 350, this)">Add</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://media.istockphoto.com/id/1254672762/photo/delicious-homemade-hamburger-and-french-fries.jpg?s=612x612" alt="Cheese Burger" />
+    <h3>Cheese Burger - ₹220</h3>
+    <input type="number" min="1" value="1" class="qty" />
+    <button class="btn" onclick="addToCart('Cheese Burger', 220, this)">Add</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://www.foodandwine.com/thmb/7BpSJWDh1s-2M2ooRPHoy07apq4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mozzarella-pizza-margherita-FT-RECIPE0621-11fa41ceb1a5465d9036a23da87dd3d4.jpg" alt="Pizza" />
+    <h3>Margherita Pizza - ₹450</h3>
+    <input type="number" min="1" value="1" class="qty" />
+    <button class="btn" onclick="addToCart('Margherita Pizza', 450, this)">Add</button>
+  </div>
+
+  <div class="order-cart">
+    <h2>Your Cart</h2>
+    <div id="cart"></div>
+    <p><strong>Total: ₹<span id="total">0</span></strong></p>
+    <button class="btn" onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price, btn) {
+      const qty = parseInt(btn.previousElementSibling.value);
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, price, qty });
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      let html = "";
+      let total = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        html += `<p>${item.name} × ${item.qty} = ₹${itemTotal}</p>`;
+        total += itemTotal;
+      });
+      document.getElementById("cart").innerHTML = html;
+      document.getElementById("total").textContent = total;
+    }
+
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert("Cart is empty!");
+        return;
+      }
+      alert("Thank you! Order placed.");
+      cart = [];
+      renderCart();
+    }
+  </script>
+
+</body>
+</html>
